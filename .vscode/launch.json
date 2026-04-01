@@ -1,0 +1,61 @@
+{
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "name": "Debug CLI (Bun)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "bun",
+      // "program": "${workspaceFolder}/src/entrypoints/cli.tsx",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      // "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Debug CLI With Logs",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/Users/temptrip/.bun/bin/bun",
+      "program": "${workspaceFolder}/src/entrypoints/cli.tsx",
+      "args": ["--debug", "--debug-to-stderr"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "PATH": "/Users/temptrip/.bun/bin:${env:PATH}",
+        "CLAUDE_CODE_DEBUG_LOG_LEVEL": "verbose"
+      }
+    },
+    {
+      "name": "Debug CLI Pipe Mode",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/Users/temptrip/.bun/bin/bun",
+      "program": "${workspaceFolder}/src/entrypoints/cli.tsx",
+      "args": ["-p"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Debug Built CLI",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/Users/temptrip/.bun/bin/bun",
+      "program": "${workspaceFolder}/dist/cli.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "preLaunchTask": "build"
+    }
+  ]
+}
